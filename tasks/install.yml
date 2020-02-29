@@ -1,0 +1,6 @@
+---
+- name: Install php package
+  apt:
+    name: php7.3-fpm
+    update_cache: true
+    state: present
