@@ -6,6 +6,8 @@
   apt:
     name:
       - php-zip
+      - php-mbstring
+      - php-xml
     state: present
 
 - name: LARAVEL | Install laravel
