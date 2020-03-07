@@ -1,0 +1,2 @@
+---
+php_composer_vendor_bin_dir: "{{ php_composer_user_home }}/.composer/vendor/bin"

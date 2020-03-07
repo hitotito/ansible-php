@@ -1,0 +1,7 @@
+---
+php_install_laravel: false
+
+# composer will install libraries using user defined in `php_composer_user`
+php_composer_user: php_composer
+php_composer_group: php_composer
+php_composer_user_home: /opt/composer

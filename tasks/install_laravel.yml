@@ -1,0 +1,17 @@
+---
+- name: LARAVEL | Install composer
+  import_tasks: install_composer.yml
+
+- name: LARAVEL | Install laravel PHP dependency
+  apt:
+    name:
+      - php-zip
+    state: present
+
+- name: LARAVEL | Install laravel
+  become: true
+  become_user: "{{ php_composer_user }}"
+  shell: |
+    composer global require laravel/installer
+  args:
+    creates: "{{ php_composer_vendor_bin_dir }}/laravel"

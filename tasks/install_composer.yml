@@ -1,0 +1,26 @@
+---
+# TODO - need to check if composer is already install here, since we are install via shell script
+- name: COMPOSER | Install composer binary
+  script: "install_composer.sh"
+  args:
+    creates: /usr/local/bin/composer
+
+- name: COMPOSER | Create php_composer group
+  group:
+    name: "{{ php_composer_group }}"
+    state: present
+
+- name: COMPOSER | Create php_compuser user
+  user:
+    name: "{{ php_composer_user }}"
+    group: "{{ php_composer_group }}"
+    home: "{{ php_composer_user_home }}"
+    system: yes
+    create_home: yes
+    state: present
+
+- name: COMPOSER | Copy .bashrc_composer
+  template:
+    src: composer.sh.j2
+    dest: /etc/profile.d/composer.sh
+    mode: 0644

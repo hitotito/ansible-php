@@ -2,3 +2,9 @@
 - name: Install php
   import_tasks: install.yml
   tags: install
+
+# Install framework
+- name: Install laravel
+  when: php_install_laravel
+  import_tasks: install_laravel.yml
+  tags: laravel
