@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 import json
 import re
 import subprocess
@@ -17,7 +17,7 @@ try:
 except:
   pass
 
-print json.dumps({
+print(json.dumps({
   "installed": php_installed,
   "version": php_version,
-}, sort_keys=True)
+}, sort_keys=True))
